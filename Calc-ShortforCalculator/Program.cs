@@ -13,24 +13,25 @@ while (true)
             break;
         case CalculatorModeType.MultiLine:
             Console.WriteLine("Multi-Line mode active");
+            bool sumShown = false;
+
+            double number1 = ExtendedLogic.CalculateMultiLine("Enter a number.");
+            string mathOperator = ExtendedLogic.GetMathOperator("Enter an operator. +, -, *, /, %");
+            double number2 = ExtendedLogic.CalculateMultiLine("Enter a number");
+    
+            if ((mathOperator == "/" || mathOperator == "%") && number2 == 0)
+                Console.WriteLine("Cannot divide/mod by zero");
+            else
+            {
+                double sum = ExtendedLogic.Calculate(number1, number2, mathOperator);
+                Console.WriteLine($"The result is {sum}");
+                sumShown = true;
+            }
+
+            if (sumShown)
+                SideLogic.ExitAppMessage("Another sum? enter y or n");
             break;
     }
 
-    bool sumShown = false;
-
-    double number1 = ExtendedLogic.CalculateMultiLine("Enter a number.");
-    string mathOperator = ExtendedLogic.GetMathOperator("Enter an operator. +, -, *, /, %");
-    double number2 = ExtendedLogic.CalculateMultiLine("Enter a number");
     
-    if ((mathOperator == "/" || mathOperator == "%") && number2 == 0)
-        Console.WriteLine("Cannot divide/mod by zero");
-    else
-    {
-        double sum = ExtendedLogic.Calculate(number1, number2, mathOperator);
-        Console.WriteLine($"The result is {sum}");
-        sumShown = true;
-    }
-
-    if (sumShown)
-        SideLogic.ExitAppMessage("Another sum? enter y or n");
 }
