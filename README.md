@@ -34,17 +34,17 @@ Follow the on-screen prompts to use the calculator.
 
 #### Example usage - Multi-Line
 -----Calc (Short for Calculator)-----
-Advanced or Multi-Line Calculator? Enter 'Advanced' or 'Multi-Line'
-Multi-Line
-Multi-Line mode active
-Enter a number.
-5
-Enter an operator. +, -, *, /, %
-*
-Enter a number
-3
-The result is 15
-Another sum? enter y or n
+Advanced or Multi-Line Calculator? Enter 'Advanced' or 'Multi-Line'  
+Multi-Line  
+Multi-Line mode active  
+Enter a number.  
+5  
+Enter an operator. +, -, *, /, %  
+*  
+Enter a number  
+3  
+The result is 15  
+Another sum? enter y or n  
 
 ---
 
