@@ -33,7 +33,7 @@ Follow the on-screen prompts to use the calculator.
 ---
 
 #### Example usage - Multi-Line
------Calc (Short for Calculator)-----
+-----Calc (Short for Calculator)-----   
 Advanced or Multi-Line Calculator? Enter 'Advanced' or 'Multi-Line'  
 Multi-Line  
 Multi-Line mode active  
@@ -46,8 +46,19 @@ Enter a number
 The result is 15  
 Another sum? enter y or n  
 
+#### Example usage - Advanced
+-----Calc (Short for Calculator)-----   
+Advanced or Multi-Line Calculator? Enter 'Advanced' or 'Multi-Line'  
+Advanced   
+Advanced mode active   
+Enter a sum such as 5+3 or 10 - 2
+7 * 7   
+The result is 49   
+Another sum? enter y or n  
+
 ---
 
 ## Upcoming Features
 
-- Advanced Mode
+- BIDMAS
+- Simple GUI
