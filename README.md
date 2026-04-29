@@ -4,7 +4,7 @@ A simple console-based calculator application written in C#. The project is just
 
 ## Features
 
-- **Advanced Mode**: (Placeholder for future more advanced features such as one line operations and BIDMAS)
+- **Advanced Mode**: Perform calculations by entering numbers and operators in a singular line.
 - **Multi-Line Mode**: Perform calculations by entering numbers and operators step-by-step.
 
 ## Getting Started
