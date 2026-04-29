@@ -51,7 +51,7 @@ Another sum? enter y or n
 Advanced or Multi-Line Calculator? Enter 'Advanced' or 'Multi-Line'  
 Advanced   
 Advanced mode active   
-Enter a sum such as 5+3 or 10 - 2
+Enter a sum such as 5+3 or 10 - 2   
 7 * 7   
 The result is 49   
 Another sum? enter y or n  
