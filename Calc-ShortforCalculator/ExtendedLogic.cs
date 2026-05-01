@@ -8,6 +8,11 @@ public class ExtendedLogic
     {
         Console.WriteLine(message);
         string? input = Console.ReadLine();
+        if (input == null) 
+        {
+            Console.WriteLine("Invalid input"); 
+            return;
+        }
         input = input.Replace(" ", "");
         
         var check = Regex.Match(input, @"^(-?\d+(\.\d+)?)([+\-*/%])(-?\d+(\.\d+)?)$");
@@ -18,22 +23,19 @@ public class ExtendedLogic
             string operatorSymbol = check.Groups[3].Value;
             double number2 = double.Parse(check.Groups[4].Value);
 
-            double sum = operatorSymbol switch
+            if ((operatorSymbol == "/" || operatorSymbol == "%") && number2 == 0)
             {
-                "+" => number1 + number2,
-                "-" => number1 - number2,
-                "*" => number1 * number2,
-                "/" => number2 != 0 ? number1 / number2 : throw new DivideByZeroException(),
-                "%" => number2 != 0 ? number1 % number2 : throw new DivideByZeroException(),
-                _ => throw new InvalidOperationException("Something went wrong. Try again")
-            };
+                Console.WriteLine("Cannot divide/mod by zero");
+                return;
+            }
+            double sum = Calculate(number1, number2, operatorSymbol);
             Console.WriteLine($"The result is {sum}");
             return;
         }
         Console.WriteLine("Invalid input");
     }
     
-    public static double CalculateMultiLine(string message)
+    private static double GetMultiLineNumber(string message)
     {
         double number;
         while (true)
@@ -45,7 +47,7 @@ public class ExtendedLogic
     }
     
 
-    public static string GetMathOperator(string mathOperator)
+    private static string GetMathOperator(string mathOperator)
     {
         while (true)
         {
@@ -87,7 +89,7 @@ public class ExtendedLogic
         }
     }
 
-    public static double Calculate(double number1, double number2, string mathOperator)
+    private static double Calculate(double number1, double number2, string mathOperator)
     {
         return mathOperator switch
         {
@@ -110,9 +112,14 @@ public class ExtendedLogic
             (a, b) => a + b,
             (a, b) => a - b,
             (a, b) => a * b,
-            (a, b) => a / b,
-            (a, b) => a % b,
+ 
         };
+
+        if (number2 != 0)
+        {
+            operatorList.Add((a, b) => a / b);
+            operatorList.Add((a, b) => a % b);
+        }
         
         int randNum = Rand.Next(operatorList.Count);
         return operatorList[randNum](number1, number2);
@@ -120,9 +127,9 @@ public class ExtendedLogic
 
     public static void CalculateMultiLine()
     {
-        double number1 = CalculateMultiLine("Enter a number.");
+        double number1 = GetMultiLineNumber("Enter a number.");
         string mathOperator = GetMathOperator("Enter an operator. +, -, *, /, %");
-        double number2 = CalculateMultiLine("Enter a number");
+        double number2 = GetMultiLineNumber("Enter a number");
     
         if ((mathOperator == "/" || mathOperator == "%") && number2 == 0)
             Console.WriteLine("Cannot divide/mod by zero");

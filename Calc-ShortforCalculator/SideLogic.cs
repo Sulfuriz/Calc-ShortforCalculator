@@ -20,7 +20,7 @@ public class SideLogic
         }
     }
 
-    public static void ExitApp()
+    private static void ExitApp()
     {
         Environment.Exit(0);
     }
